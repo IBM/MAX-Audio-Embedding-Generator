@@ -1,0 +1,7 @@
+Dockerfile
+README.*
+LICENSE
+.gitignore
+.git
+/assets/vggish_model.ckpt
+/assets/vggish_pca_params.npz
