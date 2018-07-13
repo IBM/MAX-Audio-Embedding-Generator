@@ -124,11 +124,23 @@ You should see a JSON response like that below:
 }
 ```
 
-## 4. Development
+## 4. Run the Notebook
+
+Once the model server is running, you can see how to use it by walking through [the demo notebook](demo.ipynb). _Note_ the demo requires `jupyter`, `numpy`, `sklearn` and `matplotlib`.
+
+Run the following command from the model repo base folder, in a new terminal window (leaving the model server running in the other terminal window):
+
+```
+jupyter notebook
+```
+
+This will start the notebook server. You can open the demo notebook by clicking on `demo.ipynb`.
+
+## 5. Development
 
 To run the Flask API app in debug mode, edit `config.py` to set `DEBUG = True` under the application settings. You will
 then need to rebuild the Docker image (see [step 1](#1-build-the-model)).
 
-## 5. Cleanup
+## 6. Cleanup
 
 To stop the Docker container, type `CTRL` + `C` in your terminal.

@@ -102,3 +102,7 @@ ENV/
 .mypy_cache/
 /assets/vggish_pca_params.npz
 /assets/vggish_model.ckpt
+.DS_Store
+assets/.DS_Store
+assets/.DS_Store
+.DS_Store
