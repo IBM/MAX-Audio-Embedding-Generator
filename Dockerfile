@@ -1,8 +1,9 @@
 FROM continuumio/miniconda3
 
 RUN mkdir -p /workspace/assets
-RUN wget -nv http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/audioset/vggish_model.ckpt && mv vggish_model.ckpt /workspace/assets/
-RUN wget -nv http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/audioset/vggish_pca_params.npz && mv vggish_pca_params.npz /workspace/assets/
+
+RUN wget -nv --show-progress --progress=bar:force:noscroll http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/audioset/assets.tar.gz && mv assets.tar.gz /workspace/assets/
+RUN tar -x -C /workspace/assets/ -f /workspace/assets/assets.tar.gz -v && rm /workspace/assets/assets.tar.gz
 
 # Python package versions
 ARG numpy_version=1.13.1
