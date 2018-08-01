@@ -3,6 +3,7 @@ DEBUG=True
 
 # Flask-restplus settings
 RESTPLUS_MASK_SWAGGER=False
+SWAGGER_UI_DOC_EXPANSION = 'none'
 
 # Application settings
 
