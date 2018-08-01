@@ -1,9 +1,13 @@
 FROM continuumio/miniconda3
 
-RUN mkdir -p /workspace/assets
+ARG model_bucket=http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/audioset
+ARG model_file=assets.tar.gz
 
-RUN wget -nv --show-progress --progress=bar:force:noscroll http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/audioset/assets.tar.gz && mv assets.tar.gz /workspace/assets/
-RUN tar -x -C /workspace/assets/ -f /workspace/assets/assets.tar.gz -v && rm /workspace/assets/assets.tar.gz
+WORKDIR /workspace
+RUN mkdir assets
+
+RUN wget -nv --show-progress --progress=bar:force:noscroll ${model_bucket}/${model_file} --output-document=/workspace/assets/${model_file}
+RUN tar -x -C assets/ -f assets/${model_file} -v && rm assets/${model_file}
 
 # Python package versions
 ARG numpy_version=1.13.1
@@ -24,4 +28,4 @@ COPY . /workspace
 
 EXPOSE 5000
 
-CMD python workspace/app.py
+CMD python app.py
