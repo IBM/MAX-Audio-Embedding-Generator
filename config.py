@@ -3,7 +3,6 @@ DEBUG=True
 
 # Flask-restplus settings
 RESTPLUS_MASK_SWAGGER=False
-SWAGGER_UI_DOC_EXPANSION = 'none'
 
 # Application settings
 
@@ -23,3 +22,6 @@ MODEL_META_DATA = {
     'type': 'image_classification',
     'license': '{}'.format(MODEL_LICENSE)
 }
+
+DEFAULT_EMBEDDING_CHECKPOINT = "/workspace/assets/vggish_model.ckpt"
+DEFAULT_PCA_PARAMS = "/workspace/assets/vggish_pca_params.npz"

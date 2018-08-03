@@ -19,8 +19,8 @@ import numpy as np
 import resampy
 from scipy.io import wavfile
 
-import mel_features
-import vggish_params
+from . import mel_features
+from . import vggish_params
 import sys
 
 def waveform_to_examples(data, sample_rate):
