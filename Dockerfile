@@ -4,6 +4,8 @@ RUN mkdir -p /workspace/assets
 RUN wget -nv http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/audioset/vggish_model.ckpt && mv vggish_model.ckpt /workspace/assets/
 RUN wget -nv http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/audioset/vggish_pca_params.npz && mv vggish_pca_params.npz /workspace/assets/
 
+RUN apt-get update && apt-get install -y ffmpeg && rm -rf /var/lib/apt/lists/*
+
 # Python package versions
 ARG numpy_version=1.13.1
 ARG tf_version=1.8.0
