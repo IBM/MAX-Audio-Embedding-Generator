@@ -106,3 +106,5 @@ ENV/
 assets/.DS_Store
 assets/.DS_Store
 .DS_Store
+.idea/
+.pytest_cache/

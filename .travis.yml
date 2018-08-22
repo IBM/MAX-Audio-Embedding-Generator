@@ -1,0 +1,12 @@
+language: python
+python:
+- 3.6
+services:
+- docker
+install:
+- docker build -t max-audio-embedding-generator .
+- docker run -it -d -p 5000:5000 max-audio-embedding-generator
+before_script:
+- pip install pytest pycurl
+script:
+- pytest tests/test.py
