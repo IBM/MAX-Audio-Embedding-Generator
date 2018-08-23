@@ -1,22 +1,19 @@
 import pytest
-import pycurl
-import io
-import json
+import requests
 
 
 def test_response():
-    c = pycurl.Curl()
-    b = io.BytesIO()
-    c.setopt(pycurl.URL, 'http://localhost:5000/model/predict')
-    c.setopt(pycurl.HTTPHEADER, ['Accept:application/json', 'Content-Type: multipart/form-data'])
-    c.setopt(pycurl.HTTPPOST, [('audio', (pycurl.FORM_FILE, "assets/car-horn.wav"))])
-    c.setopt(pycurl.WRITEFUNCTION, b.write)
-    c.perform()
-    assert c.getinfo(pycurl.RESPONSE_CODE) == 200
-    c.close()
 
-    response = b.getvalue()
-    response = json.loads(response)
+    model_endpoint = 'http://localhost:5000/model/predict'
+    file_path = 'assets/car-horn.wav'
+
+    with open(file_path, 'rb') as file:
+        file_form = {'audio': (file_path, file, 'audio/wav')}
+        r = requests.post(url=model_endpoint, files=file_form)
+
+    assert r.status_code == 200
+
+    response = r.json()
 
     assert response['status'] == 'ok'
 

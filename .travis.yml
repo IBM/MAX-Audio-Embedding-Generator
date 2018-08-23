@@ -8,6 +8,6 @@ install:
 - docker run -it -d -p 5000:5000 max-audio-embedding-generator
 - sleep 10 # give the container time to start
 before_script:
-- pip install pytest pycurl
+- pip install pytest requests
 script:
 - pytest tests/test.py
