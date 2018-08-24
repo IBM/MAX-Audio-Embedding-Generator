@@ -1,0 +1,13 @@
+language: python
+python:
+- 3.6
+services:
+- docker
+install:
+- docker build -t max-audio-embedding-generator .
+- docker run -it -d -p 5000:5000 max-audio-embedding-generator
+- sleep 10 # give the container time to start
+before_script:
+- pip install pytest requests
+script:
+- pytest tests/test.py
