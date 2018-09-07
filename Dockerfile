@@ -8,8 +8,6 @@ WORKDIR /workspace
 RUN wget -nv --show-progress --progress=bar:force:noscroll ${model_bucket}/${model_file} --output-document=/workspace/assets/${model_file}
 RUN tar -x -C assets/ -f assets/${model_file} -v && rm assets/${model_file}
 
-RUN apt-get update && apt-get install -y ffmpeg && rm -rf /var/lib/apt/lists/*
-
 # Python package versions
 ARG numpy_version=1.13.1
 ARG tf_version=1.8.0
