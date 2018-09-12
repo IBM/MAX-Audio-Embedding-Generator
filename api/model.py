@@ -24,13 +24,9 @@ class Model(Resource):
         return MODEL_META_DATA
 
 
-label_prediction = api.model('LabelPrediction', {
-    'embedding': fields.List(fields.List(fields.Float, required=True, description="Generated embeddings"))
-})
-
 predict_response = api.model('ModelPredictResponse', {
     'status': fields.String(required=True, description='Response status message'),
-    'predictions': fields.List(fields.Nested(label_prediction), description='List containing the generated embeddings')
+    'embedding': fields.List(fields.List(fields.Float, required=True, description="Generated embedding"))
 })
 
 # set up parser for audio input data
@@ -47,7 +43,7 @@ class Predict(Resource):
     @api.expect(audio_parser)
     @api.marshal_with(predict_response)
     def post(self):
-        """Predict audio classes from input data"""
+        """Generate audio embedding from input data"""
         result = {'status': 'error'}
 
         args = audio_parser.parse_args()
@@ -57,7 +53,7 @@ class Predict(Resource):
         if os.path.exists("/audio.wav"):
             os.remove("/audio.wav")
         
-        if('.wav' in str(args['audio'])):
+        if '.wav' in str(args['audio']):
             file = open("/audio.wav", "wb")
             file.write(audio_data)
             file.close()
@@ -66,12 +62,11 @@ class Predict(Resource):
             e.data = {'status': 'error', 'message': 'Invalid file type/extension'}
             raise e
 
-        # Getting the predicions
+        # Getting the predictions
         preds = self.mw.predict("/audio.wav")
         
         # Aligning the predictions to the required API format
-        label_preds = [{'embedding': preds.tolist()}]
-        result['predictions'] = label_preds
+        result['embedding'] = preds.tolist()
         result['status'] = 'ok'
         
         os.remove("/audio.wav")

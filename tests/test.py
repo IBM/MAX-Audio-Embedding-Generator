@@ -17,11 +17,11 @@ def test_response():
 
     assert response['status'] == 'ok'
 
-    assert len(response['predictions'][0]['embedding']) == 4
-    assert len(response['predictions'][0]['embedding'][0]) == 128
-    assert len(response['predictions'][0]['embedding'][1]) == 128
-    assert len(response['predictions'][0]['embedding'][2]) == 128
-    assert len(response['predictions'][0]['embedding'][3]) == 128
+    assert len(response['embedding']) == 4
+    assert len(response['embedding'][0]) == 128
+    assert len(response['embedding'][1]) == 128
+    assert len(response['embedding'][2]) == 128
+    assert len(response['embedding'][3]) == 128
 
 
 if __name__ == '__main__':
