@@ -135,7 +135,7 @@ You should see a JSON response like that below:
 ```
 {
   "status": "ok",
-  "result": [
+  "embedding": [
     [
       158,
       23,
