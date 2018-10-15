@@ -7,3 +7,6 @@ LICENSE
 .idea/
 tests/
 .pytest_cache/
+*.ipynb
+__pycache__/
+heatmap.png
