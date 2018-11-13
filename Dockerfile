@@ -1,6 +1,6 @@
 FROM codait/max-base
 
-ARG model_bucket=http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/audioset
+ARG model_bucket=http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/audio-embedding-generator/1.0
 ARG model_file=assets.tar.gz
 
 WORKDIR /workspace
