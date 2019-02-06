@@ -4,6 +4,7 @@ from werkzeug.exceptions import BadRequest
 from config import MODEL_META_DATA
 from core.backend import ModelWrapper
 import os
+import random
 
 api = Namespace('model', description='Model information and inference operations')
 
@@ -37,38 +38,43 @@ audio_parser.add_argument('audio', type=FileStorage, location='files', required=
 
 @api.route('/predict')
 class Predict(Resource):
-    mw = ModelWrapper()
 
     @api.doc('predict')
     @api.expect(audio_parser)
     @api.marshal_with(predict_response)
     def post(self):
-        """Generate audio embedding from input data"""
-        result = {'status': 'error'}
+        try:
+            mw = ModelWrapper()
+            """Generate audio embedding from input data"""
+            result = {'status': 'error'}
 
-        args = audio_parser.parse_args()
-        audio_data = args['audio'].read()
+            args = audio_parser.parse_args()
+            audio_data = args['audio'].read()
 
-        # clean up from earlier runs
-        if os.path.exists("/audio.wav"):
-            os.remove("/audio.wav")
-        
-        if '.wav' in str(args['audio']):
-            file = open("/audio.wav", "wb")
-            file.write(audio_data)
-            file.close()
-        else:
-            e = BadRequest()
-            e.data = {'status': 'error', 'message': 'Invalid file type/extension'}
-            raise e
+            new_file_name = '{}_{}.wav'.format(args['audio'], random.randint(1,10000000000))
+            # clean up from earlier runs
+            if os.path.exists(new_file_name):
+                os.remove(new_file_name)
 
-        # Getting the predictions
-        preds = self.mw.predict("/audio.wav")
-        
-        # Aligning the predictions to the required API format
-        result['embedding'] = preds.tolist()
-        result['status'] = 'ok'
-        
-        os.remove("/audio.wav")
+            if '.wav' in str(args['audio']):
+                file = open(new_file_name, "wb")
+                file.write(new_file_name)
+                file.close()
+            else:
+                e = BadRequest()
+                e.data = {'status': 'error', 'message': 'Invalid file type/extension'}
+                raise e
 
-        return result
+            # Getting the predictions
+            preds = mw.predict(new_file_name)
+
+            # Aligning the predictions to the required API format
+            result['embedding'] = preds.tolist()
+            result['status'] = 'ok'
+
+            os.remove(new_file_name)
+
+            return result
+        except Exception as e:
+            print("error: {}".format(e))
+            return ""
