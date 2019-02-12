@@ -1,10 +1,10 @@
 import tensorflow as tf
+from maxfw.model import MAXModelWrapper
 from . import vggish_input
 from . import vggish_params
 from . import vggish_postprocess
 from . import vggish_slim
 from config import DEFAULT_EMBEDDING_CHECKPOINT, DEFAULT_PCA_PARAMS
-from maxfw.model import MAXModelWrapper
 
 
 class ModelWrapper(MAXModelWrapper):

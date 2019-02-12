@@ -1,9 +1,9 @@
+import os
 from flask_restplus import fields
 from werkzeug.datastructures import FileStorage
 from werkzeug.exceptions import BadRequest
-from core.model import ModelWrapper
-import os
 from maxfw.core import MAX_API, PredictAPI
+from core.model import ModelWrapper
 
 
 # set up parser for audio input data
