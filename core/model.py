@@ -3,7 +3,7 @@ from . import vggish_input
 from . import vggish_params
 from . import vggish_postprocess
 from . import vggish_slim
-from config import DEFAULT_EMBEDDING_CHECKPOINT, DEFAULT_PCA_PARAMS, MODEL_META_DATA as model_meta
+from config import DEFAULT_EMBEDDING_CHECKPOINT, DEFAULT_PCA_PARAMS
 from maxfw.model import MAXModelWrapper
 
 
@@ -13,7 +13,16 @@ class ModelWrapper(MAXModelWrapper):
     Also contains any helper function required.
     """
 
-    MODEL_META_DATA = model_meta
+    MODEL_NAME = 'audio_embeddings'
+    MODEL_LICENSE = 'Apache 2.0'
+
+    MODEL_META_DATA = {
+        'id': '{}-tf-imagenet'.format(MODEL_NAME.lower()),
+        'name': '{} TensorFlow Model'.format(MODEL_NAME),
+        'description': '{} TensorFlow model trained on Audio Set'.format(MODEL_NAME),
+        'type': 'image_classification',
+        'license': '{}'.format(MODEL_LICENSE)
+    }
 
     def __init__(self, embedding_checkpoint=DEFAULT_EMBEDDING_CHECKPOINT, pca_params=DEFAULT_PCA_PARAMS):
         # Initialize the vgg-ish embedding model
