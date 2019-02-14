@@ -12,7 +12,8 @@ def test_swagger():
 
     json = r.json()
     assert 'swagger' in json
-    assert json.get('info') and json.get('info').get('title') == 'Model Asset Exchange Server'
+    assert json.get('info') and json.get('info').get('title') == 'MAX Audio Embedding Generator'
+    assert json.get('info') and json.get('info').get('description') == 'Generate embedding vectors from audio files.'
 
 
 def test_metadata():
