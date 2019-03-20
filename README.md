@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/IBM/MAX-Audio-Embedding-Generator.svg?branch=master)](https://travis-ci.com/IBM/MAX-Audio-Embedding-Generator) [![Website Status](https://img.shields.io/website/http/max-audio-embedding-generator.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-audio-embedding-generator.max.us-south.containers.appdomain.cloud/)
+
 # IBM Code Model Asset Exchange: Audio Embedding Generator
 
 This repository contains code to instantiate and deploy an audio embedding model. This model recognizes a signed 16-bit
