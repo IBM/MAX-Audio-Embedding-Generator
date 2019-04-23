@@ -1,6 +1,6 @@
 numpy==1.13.1
 tensorflow==1.8.0
 scipy==0.19.1
-resampy
+resampy==0.2.1
 six==1.10.0
-json_tricks
+json_tricks==3.13.1
