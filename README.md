@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/IBM/MAX-Audio-Embedding-Generator.svg?branch=master)](https://travis-ci.com/IBM/MAX-Audio-Embedding-Generator) [![Website Status](https://img.shields.io/website/http/max-audio-embedding-generator.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-audio-embedding-generator.max.us-south.containers.appdomain.cloud/)
+ [<img src="docs/deploy-max-to-ibm-cloud-with-kubernetes-button.png" width="400px">](http://ibm.biz/max-to-ibm-cloud-tutorial) 
 
 # IBM Code Model Asset Exchange: Audio Embedding Generator
 
@@ -14,7 +15,7 @@ Github page for more ideas about potential usages.
 
 The model files are hosted on IBM Cloud Object Storage. The code in this repository deploys the model as a web service
 in a Docker container. This repository was developed as part of the
-[IBM Code Model Asset Exchange](https://developer.ibm.com/code/exchanges/models/).
+[IBM Code Model Asset Exchange](https://developer.ibm.com/code/exchanges/models/) and the public API is powered by [IBM Cloud](https://ibm.biz/Bdz2XM).
 
 ## Model Metadata
 | Domain | Application | Industry  | Framework | Training Data | Input Data Format |
@@ -74,6 +75,8 @@ $ kubectl apply -f https://raw.githubusercontent.com/IBM/MAX-Audio-Embedding-Gen
 ```
 
 The model will be available internally at port `5000`, but can also be accessed externally through the `NodePort`.
+
+A more elaborate tutorial on how to deploy this MAX model to production on [IBM Cloud](https://ibm.biz/Bdz2XM) can be found [here](http://ibm.biz/max-to-ibm-cloud-tutorial). 
 
 ## Run Locally
 
