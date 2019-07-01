@@ -24,7 +24,7 @@ RESTPLUS_MASK_SWAGGER = False
 # API metadata
 API_TITLE = 'MAX Audio Embedding Generator'
 API_DESC = 'Generate embedding vectors from audio files.'
-API_VERSION = '1.1.0'
+API_VERSION = '1.2.0'
 
 
 DEFAULT_EMBEDDING_CHECKPOINT = "assets/vggish_model.ckpt"
