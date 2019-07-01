@@ -38,7 +38,7 @@ arXiv preprint arXiv:1609.09430, 2016.
 | This repository | [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) | [LICENSE](LICENSE) |
 | Model Files | [Apache 2.0](https://github.com/tensorflow/models/blob/master/LICENSE) | [AudioSet](https://github.com/tensorflow/models/tree/master/research/audioset) |
 | Model Code | [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) | [AudioSet](https://github.com/tensorflow/models/tree/master/research/audioset) |
-| Test assets | Various | [Asset README](assets/README.md) |
+| Test samples | Various | [Sample README](samples/README.md) |
 
 
 ## Pre-requisites:
@@ -129,7 +129,7 @@ in the `assets` folder) and get embeddings from the API.
 You can also test it on the command line, for example:
 
 ```
-$ curl -F "audio=@assets/car-horn.wav" -XPOST http://localhost:5000/model/predict
+$ curl -F "audio=@samples/car-horn.wav" -XPOST http://localhost:5000/model/predict
 ```
 
 You should see a JSON response like that below:

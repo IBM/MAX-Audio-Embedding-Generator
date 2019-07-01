@@ -48,7 +48,7 @@ def test_metadata():
 def test_predict():
 
     model_endpoint = 'http://localhost:5000/model/predict'
-    file_path = 'assets/car-horn.wav'
+    file_path = 'samples/car-horn.wav'
 
     with open(file_path, 'rb') as file:
         file_form = {'audio': (file_path, file, 'audio/wav')}
