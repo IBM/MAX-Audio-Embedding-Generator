@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.com/IBM/MAX-Audio-Embedding-Generator.svg?branch=master)](https://travis-ci.com/IBM/MAX-Audio-Embedding-Generator) [![Website Status](https://img.shields.io/website/http/max-audio-embedding-generator.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-audio-embedding-generator.max.us-south.containers.appdomain.cloud/)
- [<img src="docs/deploy-max-to-ibm-cloud-with-kubernetes-button.png" width="400px">](http://ibm.biz/max-to-ibm-cloud-tutorial) 
+
+[<img src="docs/deploy-max-to-ibm-cloud-with-kubernetes-button.png" width="400px">](http://ibm.biz/max-to-ibm-cloud-tutorial) 
 
 # IBM Code Model Asset Exchange: Audio Embedding Generator
 
