@@ -1,13 +1,5 @@
-# Asset Details
+# Sample Details
 
-## Model files
-
-Model files are from the [Tensorflow/models Github](https://github.com/tensorflow/models/tree/master/research/audioset),
-where they are available under an [Apache 2.0 License](https://github.com/tensorflow/models/blob/master/LICENSE).
-
-_Note_ the model [checkpoint](http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/audioset/vggish_model.ckpt)
-and [PCA parameters](http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/audioset/vggish_pca_params.npz) are
-hosted on IBM Cloud Object Storage.
 ## Audio Samples
 
 All the audio samples provided as test assets here come from freesound.org and are licensed under variants of Creative Commons as specified [here](https://freesound.org/help/faq/#what-do-i-need-to-do-to-legally-use-the-files-on-freesound). They have been converted to 16-bit format wherever necessary to align with the model input format. 
