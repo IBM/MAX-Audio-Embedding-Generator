@@ -126,7 +126,7 @@ The API server automatically generates an interactive Swagger documentation page
 it. From there you can explore the API and also create test requests.
 
 Use the `model/predict` endpoint to load a signed 16-bit PCM wav audio file (you can use the `car-horn.wav` file located
-in the `assets` folder) and get embeddings from the API.
+in the `samples` folder) and get embeddings from the API.
 
 ![Swagger Doc Screenshot](docs/swagger-screenshot.png)
 
@@ -162,7 +162,7 @@ You should see a JSON response like that below:
 
 ### 4. Run the Notebook
 
-Once the model server is running, you can see how to use it by walking through [the demo notebook](demo.ipynb). _Note_ the demo requires `jupyter`, `numpy`, `sklearn` and `matplotlib`.
+Once the model server is running, you can see how to use it by walking through [the demo notebook](samples/demo.ipynb). _Note_ the demo requires `jupyter`, `numpy`, `sklearn` and `matplotlib`.
 
 Run the following command from the model repo base folder, in a new terminal window (leaving the model server running in the other terminal window):
 
