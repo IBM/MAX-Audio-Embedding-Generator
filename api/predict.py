@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-import os
+import re
 from flask_restplus import fields
 from werkzeug.datastructures import FileStorage
 from werkzeug.exceptions import BadRequest
@@ -43,28 +43,19 @@ class ModelPredictAPI(PredictAPI):
         result = {'status': 'error'}
 
         args = input_parser.parse_args()
-        audio_data = args['audio'].read()
 
-        # clean up from earlier runs
-        if os.path.exists("/audio.wav"):
-            os.remove("/audio.wav")
-
-        if '.wav' in str(args['audio']):
-            file = open("/audio.wav", "wb")
-            file.write(audio_data)
-            file.close()
-        else:
+        if not re.match("audio/.*wav", str(args['audio'].mimetype)):
             e = BadRequest()
             e.data = {'status': 'error', 'message': 'Invalid file type/extension'}
             raise e
 
+        audio_data = args['audio'].read()
+
         # Getting the predictions
-        preds = self.model_wrapper.predict("/audio.wav")
+        preds = self.model_wrapper.predict(audio_data)
 
         # Aligning the predictions to the required API format
         result['embedding'] = preds.tolist()
         result['status'] = 'ok'
-
-        os.remove("/audio.wav")
 
         return result

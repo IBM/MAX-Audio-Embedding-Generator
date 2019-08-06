@@ -14,7 +14,7 @@
 # ==============================================================================
 
 """Compute input examples for VGGish from audio waveform."""
-
+from io import BytesIO
 import numpy as np
 import resampy
 from scipy.io import wavfile
@@ -82,6 +82,7 @@ def wavfile_to_examples(wav_file):
       See waveform_to_examples.
     """
     try:
+        wav_file = BytesIO(wav_file)
         sr, wav_data = wavfile.read(wav_file)
     except IOError:
         print("Error reading WAV file!")
