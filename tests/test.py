@@ -39,10 +39,11 @@ def test_metadata():
     assert r.status_code == 200
 
     metadata = r.json()
-    assert metadata['id'] == 'audio_embeddings-tf-imagenet'
+    assert metadata['id'] == 'audio_embeddings-tf'
     assert metadata['name'] == 'audio_embeddings TensorFlow Model'
     assert metadata['description'] == 'audio_embeddings TensorFlow model trained on Audio Set'
     assert metadata['license'] == 'Apache 2.0'
+    assert metadata['source'] == 'https://developer.ibm.com/exchanges/models/all/max-audio-embedding-generator/'
 
 
 def test_predict():
