@@ -9,7 +9,7 @@ PCM wav file as an input, generates embeddings, applies
 [PCA transformation/quantization](https://github.com/tensorflow/models/tree/master/research/audioset#output-embeddings),
 and outputs the result as arrays of 1 second embeddings. The model was trained on
 [AudioSet](https://research.google.com/audioset/). As described in the
-[code](https://github.com/tensorflow/models/blob/master/research/audioset/vggish_inference_demo.py#L16) this model is
+[code](https://github.com/tensorflow/models/blob/master/research/audioset/vggish/vggish_inference_demo.py) this model is
 intended to be used an example and perhaps as a stepping stone for more complex models. See the
 [Usage](https://github.com/tensorflow/models/tree/master/research/audioset#usage) heading in the `tensorflow/models`
 Github page for more ideas about potential usages.
