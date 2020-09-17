@@ -27,6 +27,6 @@ spec:
     spec:
       containers:
       - name: max-audio-embedding-generator
-        image: codait/max-audio-embedding-generator:latest
+        image: quay.io/codait/max-audio-embedding-generator:latest
         ports:
         - containerPort: 5000
