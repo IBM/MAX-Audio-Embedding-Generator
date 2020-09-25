@@ -1,5 +1,5 @@
 numpy==1.18.1
-tensorflow==1.15.2
+tensorflow==1.15.4
 scipy==1.4.1
 resampy==0.2.1
 six==1.10.0
