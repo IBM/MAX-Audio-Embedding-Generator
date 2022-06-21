@@ -1,4 +1,4 @@
-numpy==1.18.1
+numpy==1.22.0
 tensorflow==1.15.4
 scipy==1.4.1
 resampy==0.2.1
